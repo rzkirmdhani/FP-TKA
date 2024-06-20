@@ -2,9 +2,9 @@
 ## Teknologi Komputasi Awan
 ### Kelas A-05
 | No. | Nama | Nrp |
-| :---         |     :---:      |          ---: |
+| :--- |     :---:      |          ---: |
 | 1.   | Rizki Ramadhani     | 5027221013    |
-| git diff     | git diff       | git diff      |
+| 2.   | Angella Christie    | 5027221047    |
 | git status   | git status     | git status    |
 | git diff     | git diff       | git diff      |
 
@@ -52,12 +52,9 @@ Pada final project kami menggunakan Microsoft Azure.
 ![Screenshot 2024-06-20 235833](https://github.com/rzkirmdhani/FP-TKA/assets/141987387/c33af9f9-a325-47bb-8f55-3947c815772e)
 
 | **No.** | **Nama** | **Spesifikasi** | **Fungsi** | **Harga/Bulan** |
-|-------------|-------------|-------------|-------------|-------------|
-| Data 1-1    | Data 1-2    | Data 1-3    | Data 1-4    | Data 1-5    |
-| Data 2-1    | Data 2-2    | Data 2-3    | Data 2-4    | Data 2-5    |
-| Data 3-1    | Data 3-2    | Data 3-3    | Data 3-4    | Data 3-5    |
-| Data 4-1    | Data 4-2    | Data 4-3    | Data 4-4    | Data 4-5    |
-| Data 5-1    | Data 5-2    | Data 5-3    | Data 5-4    | Data 5-5    |
+|---------|-------------|-------------|-------------|-------------|
+| 1. | VM1 (Worker1) | Size Standard B1s, 1vCPUs, Ram 1GB| App Worker    | $7,59|
+| 2. | VM2 (Worker2) | Size Standard B1s, 1vCPUs, Ram 1GB| App Worker    | $7,59|
 
 # Implementasi
 ## Konfigurasi VM1
@@ -146,3 +143,29 @@ sudo systemctl status mongod
 ![Screenshot 2024-06-20 233853](https://github.com/rzkirmdhani/FP-TKA/assets/141987387/6d2d213b-a4cc-4c20-9167-dab4aee92a01)
 
 # Konfigurasi VM2
+# Testing 
+1. Locust testing dengan waktu 60 detik, maximum RPS 31.3, failure 0%
+   
+   ![Gambar WhatsApp 2024-06-20 pukul 17 48 14_1fc8f9fa](https://github.com/rzkirmdhani/FP-TKA/assets/131789727/45ce0230-dd0e-4972-b17d-3d13f2557f9c)
+
+2. Locust testing dengan spawn rate 50, waktu 60 detik, maximum peak concurrency 100, maximum RPS 34.3, failure 0%.
+
+   ![Gambar WhatsApp 2024-06-20 pukul 17 48 14_9bbade84](https://github.com/rzkirmdhani/FP-TKA/assets/131789727/e20e5943-f913-4207-bd1e-2650ae810b40)
+
+3. Locust testing dengan spawn rate 100, waktu 60 detik, maximum peak concurrency 150, maximum RPS 41.5, failure 0%.
+
+   ![Gambar WhatsApp 2024-06-20 pukul 21 40 27_e7e4dc27](https://github.com/rzkirmdhani/FP-TKA/assets/131789727/6e0f5900-64cc-45fc-82d0-50fe4764be84)
+
+4. Locust testing dengan spawn rate 200, waktu 60 detik, maximum peak concurrency 250, maximum RPS 54.25, failure 0%.
+
+   ![Gambar WhatsApp 2024-06-20 pukul 17 56 11_72249c94](https://github.com/rzkirmdhani/FP-TKA/assets/131789727/6873daad-0206-4810-b0ee-382b206949bb)
+
+5. Locust testing dengan spawn rate 500, waktu 60 detik, maximum peak concurency 510, maximum RPS 132.25, failure 29% tetapi berangsur menurun (menjadi 0%) setelah beberapa detik.
+   
+   ![Gambar WhatsApp 2024-06-20 pukul 21 45 36_347bf08a](https://github.com/rzkirmdhani/FP-TKA/assets/131789727/9b28d794-8cfa-4744-afaf-ffb556efdaf0)
+
+# Kesimpulan dan Saran
+1. Penggunaan Locust untuk load testing memberikan informasi tentang kapasitas maksimum server dan potensi titik kegagalan, membantu memastikan aplikasi dapat menangani beban kerja yang berat.
+2. Fitur yang ditawarkan oleh Azure relatif banyak dibandingkan yang lain.
+
+
