@@ -1,4 +1,4 @@
-![Gambar WhatsApp 2024-06-21 pukul 17 36 41_9253d3fd](https://github.com/rzkirmdhani/FP-TKA/assets/131789727/65e1f0e4-4145-47aa-a867-c51c0d1c7fca)# Final-Project-Cloud-Computing-Technology-2024
+# Final-Project-Cloud-Computing-Technology-2024
 ## Teknologi Komputasi Awan
 ### Kelas A-05
 | No. | Nama | Nrp |
