@@ -364,4 +364,3 @@ Performansi sistem meningkat seiring dengan peningkatan spawn rate dan concurren
    - Pada spawn rate 500, maximum peak concurrency mencapai 505 dan maximum RPS sebesar 159.75.
 
 
-
