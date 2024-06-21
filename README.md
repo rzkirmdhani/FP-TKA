@@ -199,7 +199,7 @@ server {
 ```
 sudo systemctl restart nginx
 ```
-4. Ubah file index.html
+4. Ubah file index.html pada /var/www/html/index.html
 ```
 <!DOCTYPE html>
 <html lang="en">
