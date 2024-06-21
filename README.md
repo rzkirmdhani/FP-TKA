@@ -320,6 +320,20 @@ http://172.190.221.74/history
 ```
 ![image](https://github.com/rzkirmdhani/FP-TKA/assets/141987387/4d1c1811-0ca3-4b8f-a4cf-912751c97b2a)
 
+#  Pengujian endpoint API
+Menggunakan Postman untuk Pengujian endpoint API.
+1. Pada Analyze
+```
+http://172.190.221.74/analyze
+```
+![Screenshot 2024-06-21 150901](https://github.com/rzkirmdhani/FP-TKA/assets/141987387/0a6ed826-8f7a-4019-9b59-b9d6caab2979)
+2. Pada History
+```
+http://172.190.221.74/history
+```
+![Screenshot 2024-06-21 151122](https://github.com/rzkirmdhani/FP-TKA/assets/141987387/773ef56f-52e5-4122-bded-1245fc3cf687)
+
+
 
 # Testing 
 1. Locust testing dengan waktu 60 detik, maximum RPS 31.3, failure 0%
