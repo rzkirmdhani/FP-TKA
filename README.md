@@ -149,8 +149,13 @@ python3 sentiment-analysis.py
 ![Screenshot 2024-06-21 135217](https://github.com/rzkirmdhani/FP-TKA/assets/141987387/826828c3-4726-4c49-bf68-05ed8090a11c)
 
 ## Konfigurasi VM2
+![Screenshot 2024-06-20 122652](https://github.com/rzkirmdhani/FP-TKA/assets/141987387/00a55d89-fe3b-4633-9657-342e4bd8ef82)
 ### Nginx
-1. Edit file nginx pada /etc/nginx/sites-available/default
+1. Akses VM2 di Powershell.
+```
+ssh -i ~/.ssh/id_rsa.pem azureuser@172.190.221.74
+```
+2. Edit file nginx pada /etc/nginx/sites-available/default
 ```
 server {
     listen 80 default_server;
@@ -190,11 +195,11 @@ server {
     }
 }
 ```
-2. Restart nginx
+3. Restart nginx
 ```
 sudo systemctl restart nginx
 ```
-3. Ubah file index.html
+4. Ubah file index.html
 ```
 <!DOCTYPE html>
 <html lang="en">
