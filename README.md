@@ -55,6 +55,7 @@ Pada final project kami menggunakan Microsoft Azure.
 |---------|-------------|-------------|-------------|-------------|
 | 1. | VM1 (Worker1) | Size Standard B1s, 1vCPUs, Ram 1GB| App Worker    | $7,59|
 | 2. | VM2 (Worker2) | Size Standard B1s, 1vCPUs, Ram 1GB| App Worker    | $7,59|
+|  |  | Total|     | $15,18|
 
 # Implementasi
 ## Konfigurasi VM1
@@ -141,8 +142,175 @@ sudo systemctl start mongod
 sudo systemctl status mongod
 ```
 ![Screenshot 2024-06-20 233853](https://github.com/rzkirmdhani/FP-TKA/assets/141987387/6d2d213b-a4cc-4c20-9167-dab4aee92a01)
+5. Jalankan sentiment-analysis.py
+```
+python3 sentiment-analysis.py
+```
+![Screenshot 2024-06-21 135217](https://github.com/rzkirmdhani/FP-TKA/assets/141987387/826828c3-4726-4c49-bf68-05ed8090a11c)
 
-# Konfigurasi VM2
+## Konfigurasi VM2
+### Nginx
+1. Edit file nginx pada /etc/nginx/sites-available/default
+```
+server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+
+    root /var/www/html;
+    index index.html;
+
+    server_name _;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+
+    location /analyze {
+        proxy_pass http://172.190.223.61:5000/analyze;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+
+    location /history {
+        proxy_pass http://172.190.223.61:5000/history;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+
+    location /delete-history {
+        proxy_pass http://172.190.223.61:5000/delete-history;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}
+```
+2. Restart nginx
+```
+sudo systemctl restart nginx
+```
+3. Ubah file index.html
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Analysis</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Sentiment Analysis</h1>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-container">
+                    <form id="sentiment-form">
+                        <div class="form-group">
+                            <textarea id="text-input" class="form-control" rows="4" placeholder="Enter text here..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-success btn-block">Analyze</button>
+                    </form>
+                    <p id="result" class="text-center mt-4"></p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="history-container">
+                    <h2 class="text-center">History</h2>
+                    <ul id="history" class="list-group mt-3"></ul>
+                    <button id="clear-history" class="btn btn-danger btn-block mt-3">Clear History</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('sentiment-form').addEventListener('submit', async function(event) {
+            event.preventDefault();
+            const text = document.getElementById('text-input').value;
+            try {
+                const response = await fetch('/analyze', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ text }),
+                });
+                if (!response.ok) throw new Error('Network response was not ok');
+                const result = await response.json();
+                const resultElement = document.getElementById('result');
+                resultElement.textContent = `Sentiment Score: ${result.sentiment}`;
+                resultElement.className = result.sentiment === 0 ? 'bg-danger text-white' : 'bg-success text-white';
+                fetchHistory();
+            } catch (error) {
+                console.error('There has been a problem with your fetch operation:', error);
+            }
+        });
+
+        async function fetchHistory() {
+            try {
+                const response = await fetch('/history');
+                if (!response.ok) throw new Error('Network response was not ok');
+                const history = await response.json();
+                const historyList = document.getElementById('history');
+                historyList.innerHTML = '';
+                history.forEach(item => {
+                    const listItem = document.createElement('li');
+                    listItem.className = `list-group-item history-item ${item.sentiment === 0 ? 'bg-danger text-white' : 'bg-success text-white'}`;
+                    listItem.textContent = `Text: ${item.text}, Sentiment: ${item.sentiment}`;
+                    historyList.appendChild(listItem);
+                });
+            } catch (error) {
+                console.error('There has been a problem with your fetch operation:', error);
+            }
+        }
+
+        document.getElementById('clear-history').addEventListener('click', async function() {
+            try {
+                const response = await fetch('/delete-history', { method: 'POST' });
+                if (response.ok) {
+                    fetchHistory();
+                }
+            } catch (error) {
+                console.error('Error clearing history:', error);
+            }
+        });
+
+        // Fetch history on page load
+        fetchHistory();
+    </script>
+</body>
+</html>
+```
+
+## Load Balancer
+Pada final project saat ini kami menggunakan Load Balancer milik Azure.
+![Screenshot 2024-06-20 122731](https://github.com/rzkirmdhani/FP-TKA/assets/141987387/3a286103-0d08-499e-92d5-c48dbed5c773)
+1. Buat Load Balancer yang dimiliki oleh Azure
+![Screenshot 2024-06-21 141413](https://github.com/rzkirmdhani/FP-TKA/assets/141987387/ec790cdd-0b9d-4a0b-8131-adf3c2530c51)
+2. Buat PublicIP Load Balancer
+![Screenshot 2024-06-20 122759](https://github.com/rzkirmdhani/FP-TKA/assets/141987387/e52c5c17-f608-4591-8fa7-81479871c819)
+3. Tambahkan Backend pools yaitu VM1 dan VM2
+![Screenshot 2024-06-20 122821](https://github.com/rzkirmdhani/FP-TKA/assets/141987387/859fd4b2-8dd1-4fbc-8f9d-be747d00f844)
+4. Buat Load Balncing Rules
+![image](https://github.com/rzkirmdhani/FP-TKA/assets/141987387/c13adf56-94b3-4cbc-9035-6eab26dd650a)
+![image](https://github.com/rzkirmdhani/FP-TKA/assets/141987387/7c094c83-7768-451f-8465-5f21913ec4db)
+
+* Jadi VM1 akan menjalankan Mongodb dan App Flask, mengolah data Sentiment.
+* VM2 menjalankan Nginx dan menampilkan frontend, mengarahkan permintaan ke aplikasi Flask di VM1.
+* Kunjungi PublicIP vm2 yaitu frontend dan test lakuakan analisis.
+```
+http://172.190.221.74
+```
+![Screenshot 2024-06-21 142940](https://github.com/rzkirmdhani/FP-TKA/assets/141987387/19c1516f-718c-4563-a7b0-a954c4488ed4)
+
+
 # Testing 
 1. Locust testing dengan waktu 60 detik, maximum RPS 31.3, failure 0%
    
