@@ -309,6 +309,11 @@ Pada final project saat ini kami menggunakan Load Balancer milik Azure.
 http://172.190.221.74
 ```
 ![Screenshot 2024-06-21 142940](https://github.com/rzkirmdhani/FP-TKA/assets/141987387/19c1516f-718c-4563-a7b0-a954c4488ed4)
+* Pada History
+```
+http://172.190.221.74/history
+```
+![image](https://github.com/rzkirmdhani/FP-TKA/assets/141987387/4d1c1811-0ca3-4b8f-a4cf-912751c97b2a)
 
 
 # Testing 
