@@ -1,4 +1,4 @@
-# Final-Project-Cloud-Computing-Technology-2024
+![Gambar WhatsApp 2024-06-21 pukul 17 36 41_9253d3fd](https://github.com/rzkirmdhani/FP-TKA/assets/131789727/65e1f0e4-4145-47aa-a867-c51c0d1c7fca)# Final-Project-Cloud-Computing-Technology-2024
 ## Teknologi Komputasi Awan
 ### Kelas A-05
 | No. | Nama | Nrp |
@@ -352,12 +352,16 @@ http://172.190.221.74/history
 
    ![Gambar WhatsApp 2024-06-20 pukul 17 56 11_72249c94](https://github.com/rzkirmdhani/FP-TKA/assets/131789727/6873daad-0206-4810-b0ee-382b206949bb)
 
-5. Locust testing dengan spawn rate 500, waktu 60 detik, maximum peak concurency 510, maximum RPS 132.25, failure 29% tetapi berangsur menurun (menjadi 0%) setelah beberapa detik.
-   
-   ![Gambar WhatsApp 2024-06-20 pukul 21 45 36_347bf08a](https://github.com/rzkirmdhani/FP-TKA/assets/131789727/9b28d794-8cfa-4744-afaf-ffb556efdaf0)
+5. Locust testing dengan spawn rate 500, waktu 60 detik, maximum peak concurency 505, maximum RPS 159.75, failure 24.5% tetapi berangsur menurun (menjadi 0%) setelah beberapa detik.
+
+   ![Gambar WhatsApp 2024-06-21 pukul 17 36 41_9253d3fd](https://github.com/rzkirmdhani/FP-TKA/assets/131789727/a3b9d965-d0c7-4711-ac2b-adf6a605949d)
 
 # Kesimpulan dan Saran
-1. Penggunaan Locust untuk load testing memberikan informasi tentang kapasitas maksimum server dan potensi titik kegagalan, membantu memastikan aplikasi dapat menangani beban kerja yang berat.
-2. Fitur yang ditawarkan oleh Azure relatif banyak dibandingkan yang lain.
+Performansi sistem meningkat seiring dengan peningkatan spawn rate dan concurrency, dengan detail sebagai berikut:
+   - Pada spawn rate 50, maximum peak concurrency mencapai 100 dan maximum RPS sebesar 34.3.
+   - Pada spawn rate 100, maximum peak concurrency mencapai 150 dan maximum RPS sebesar 41.5.
+   - Pada spawn rate 200, maximum peak concurrency mencapai 250 dan maximum RPS sebesar 54.25.
+   - Pada spawn rate 500, maximum peak concurrency mencapai 505 dan maximum RPS sebesar 159.75.
+
 
 
