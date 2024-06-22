@@ -51,10 +51,12 @@ Kemudian anda diminta untuk mendesain arsitektur cloud yang sesuai dengan kebutu
 Pada final project kami menggunakan Microsoft Azure.
 ![Screenshot 2024-06-20 235833](https://github.com/rzkirmdhani/FP-TKA/assets/141987387/c33af9f9-a325-47bb-8f55-3947c815772e)
 
+### Tabel Harga
+Total kami menggunakan 2 VM. VM1 sebagai Backend dan VM2 sebagai Frontend. Berikut untuk spesifikasi VM yang kami gunakan.
 | **No.** | **Nama** | **Spesifikasi** | **Fungsi** | **Harga/Bulan** |
 |---------|-------------|-------------|-------------|-------------|
-| 1. | VM1 (Worker1) | Size Standard B1s, 1vCPUs, Ram 1GB| App Worker    | $7,59|
-| 2. | VM2 (Worker2) | Size Standard B1s, 1vCPUs, Ram 1GB| App Worker    | $7,59|
+| 1. | VM1 | Size Standard B1s, 1vCPUs, Ram 1GB| Backend    | $7,59|
+| 2. | VM2 | Size Standard B1s, 1vCPUs, Ram 1GB| Frontend    | $7,59|
 |  |  | Total|     | $15,18|
 
 # Implementasi
