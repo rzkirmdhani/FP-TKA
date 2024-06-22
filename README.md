@@ -311,10 +311,12 @@ Pada final project saat ini kami menggunakan Load Balancer milik Azure.
 
 * Jadi VM1 akan menjalankan Mongodb dan App Flask, mengolah data Sentiment.
 * VM2 menjalankan Nginx dan menampilkan frontend, mengarahkan permintaan ke aplikasi Flask di VM1.
-* Kunjungi PublicIP vm2 yaitu frontend dan test lakuakan analisis.
+* Kunjungi PublicIP vm2 yaitu frontend atau juga bisa pada PublicIP Load balancer dan test lakuakan analisis.
+* Frontend VM2 atau Load Balancer.
 ```
-http://172.190.221.74
+172.190.221.74   X   20.185.234.5
 ```
+
 ![Screenshot 2024-06-21 142940](https://github.com/rzkirmdhani/FP-TKA/assets/141987387/19c1516f-718c-4563-a7b0-a954c4488ed4)
 * Pada History
 ```
