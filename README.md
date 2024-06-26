@@ -377,18 +377,23 @@ Melakukan Rezise spesifikasi yang lebih tinggi dari Total $15,18 menjadi $60.74 
 
 Dengan melakukan Rezise VM berikut hasil Locust testing.
 1. Locust testing dengan waktu 60 detik, maximum RPS 89.5, failure 0%
+
 89.5/200x20= 13.425 Poin.
    ![Screenshot 2024-06-26 165248](https://github.com/rzkirmdhani/FP-TKA/assets/141987387/d0f1a0a1-70c8-4184-b776-a19c09214454)
 2. Locust testing dengan spawn rate 50, waktu 60 detik, maximum peak concurrency 700, maximum RPS 131.7, failure 0%.
+
 131.7/200x30= 19.755 Poin.
    ![Screenshot 2024-06-26 165459](https://github.com/rzkirmdhani/FP-TKA/assets/141987387/f99219af-6607-4995-b33a-c4cc0527593b)
 3. Locust testing dengan spawn rate 100, waktu 60 detik, maximum peak concurrency 650, maximum RPS 170, failure 0%.
+
 170/200x30= 25.5 Poin.
    ![Screenshot 2024-06-26 165608](https://github.com/rzkirmdhani/FP-TKA/assets/141987387/c7415784-48e8-40d9-92b8-298a54f28bd9)
 4. Locust testing dengan spawn rate 200, waktu 60 detik, maximum peak concurrency 600, maximum RPS 224, failure 0%.
+
 224/200x30= 33.6 Poin.
    ![Screenshot 2024-06-26 012820](https://github.com/rzkirmdhani/FP-TKA/assets/141987387/878e2e05-b541-4758-89b7-064611812035)
 5. Locust testing dengan spawn rate 500, waktu 60 detik, maximum peak concurency 650, maximum RPS 226.4, failure 0%.
+
 226.4/200x30= 33.96 Poin.
    ![Screenshot 2024-06-26 013108](https://github.com/rzkirmdhani/FP-TKA/assets/141987387/9c87243c-b81e-4e78-a344-6f1951413af3)
 
