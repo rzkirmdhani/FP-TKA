@@ -368,7 +368,7 @@ Performansi sistem meningkat seiring dengan peningkatan spawn rate dan concurren
    - Pada spawn rate 500, maximum peak concurrency mencapai 500 dan maximum RPS sebesar 120.5.
 
 # Revisi
-Melakukan Rezise spesifikasi yang lebih tinggi dari $15,18 menjadi $60.74 dengan spesifikasi sebagai berikut.
+Melakukan Rezise spesifikasi yang lebih tinggi dari Total $15,18 menjadi $60.74 dengan spesifikasi sebagai berikut.
 | **No.** | **Nama** | **Spesifikasi** | **Fungsi** | **Harga/Bulan** |
 |---------|-------------|-------------|-------------|-------------|
 | 1. | VM1 | Size Standard B2s, 2vCPUs, Ram 4GB| Backend    | $30,37|
