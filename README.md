@@ -399,3 +399,6 @@ Dengan melakukan Rezise VM berikut hasil Locust testing.
 
 # Kesimpulan dan Saran
 Gunakan spesifikasi VM dengan maksimal asalkan tidak melebihi budget yang di tentukan.
+
+# Video Revisi
+Klik [Video](https://youtu.be/kUZzm8KJwXM?si=wl9oiIpcFIuoCe-Y)
