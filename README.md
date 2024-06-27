@@ -375,6 +375,13 @@ Melakukan Rezise spesifikasi yang lebih tinggi dari Total $15,18 menjadi $60.74 
 | 2. | VM2 | Size Standard B2s, 2vCPUs, Ram 4GB| Frontend    | $30,37|
 |  |  | Total|     | $$60.74|
 
+Rezise
+![Screenshot 2024-06-27 141906](https://github.com/rzkirmdhani/FP-TKA/assets/141987387/41fb5895-c000-4364-afbf-1b3d0c4f7a0a)
+VM1
+![Screenshot 2024-06-27 141753](https://github.com/rzkirmdhani/FP-TKA/assets/141987387/6f092a1f-9b5a-475f-ad7f-e6e714e9bc61)
+VM2
+![Screenshot 2024-06-27 141645](https://github.com/rzkirmdhani/FP-TKA/assets/141987387/eb9a6988-df6f-4042-b46c-453032ec8a92)
+
 Dengan melakukan Rezise VM berikut hasil Locust testing.
 1. Locust testing dengan waktu 60 detik, maximum RPS 89.5, failure 0%
 
